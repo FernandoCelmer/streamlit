@@ -533,6 +533,10 @@ class Runtime:
 
         return False, "unavailable"
 
+    @property
+    async def ping(self) -> tuple[bool, str]:
+        return True, "pong"
+
     async def does_script_run_without_error(self) -> tuple[bool, str]:
         """Load and execute the app's script to verify it runs without an error.
 

@@ -314,6 +314,11 @@ class Server:
                 {"callback": lambda: self._runtime.is_ready_for_browser_connection},
             ),
             (
+                make_url_path_regex(base, "ping"),
+                HealthHandler,
+                {"callback": lambda: self._runtime.ping},
+            ),
+            (
                 make_url_path_regex(base, METRIC_ENDPOINT),
                 StatsRequestHandler,
                 {"stats_manager": self._runtime.stats_mgr},
